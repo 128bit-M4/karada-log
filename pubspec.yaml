@@ -1,0 +1,22 @@
+name: karada_log
+description: 女性の健康管理（月経周期・基礎体温・体調）と歩数計のアプリ
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
+  pedometer: ^4.0.2
+  permission_handler: ^11.3.1
+  shared_preferences: ^2.3.2
+  flutter_local_notifications: ^17.2.4
+  timezone: ^0.9.4
+
+flutter:
+  uses-material-design: true
