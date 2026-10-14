@@ -52,6 +52,7 @@ if groovy.exists():
             sys.exit("compileOptions が見つかりません: " + str(groovy))
     if "coreLibraryDesugaring '" not in g and 'coreLibraryDesugaring "' not in g:
         g += f"\ndependencies {{\n    coreLibraryDesugaring '{DESUGAR}'\n}}\n"
+    g = re.sub(r"compileSdk(Version)?\s*=?\s*flutter\.compileSdkVersion", "compileSdk = 35", g)
     groovy.write_text(g, encoding="utf-8")
     print("patched", groovy)
 elif kts.exists():
@@ -62,6 +63,7 @@ elif kts.exists():
             sys.exit("compileOptions が見つかりません: " + str(kts))
     if "coreLibraryDesugaring(" not in k:
         k += f'\ndependencies {{\n    coreLibraryDesugaring("{DESUGAR}")\n}}\n'
+    k = re.sub(r"compileSdk\s*=\s*flutter\.compileSdkVersion", "compileSdk = 35", k)
     kts.write_text(k, encoding="utf-8")
     print("patched", kts)
 else:
